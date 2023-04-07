@@ -37,6 +37,7 @@ const {
   getSinglePicture,
   updateProjectLogo,
   updateCurrenciesIcon,
+  deleteAll,
 } = require("../controllers/system_configuration/PictureConfigurationController");
 const router = express.Router();
 
@@ -81,5 +82,7 @@ router.put(
   "/picture-configuration/update/currencies-icon/:id",
   updateCurrenciesIcon
 );
+
+router.delete("/delete/all", deleteAll);
 
 module.exports = router;

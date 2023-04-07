@@ -119,6 +119,11 @@ const getSinglePicture = async (req, res) => {
   }
 };
 
+const deleteAll = async (req, res) => {
+  await Picture.deleteMany({});
+  res.send({ message: "delete" });
+};
+
 module.exports = {
   getAllPicture,
   addPicture,
@@ -128,4 +133,5 @@ module.exports = {
   updateProjectLogo,
   updateProjectLogo,
   updateCurrenciesIcon,
+  deleteAll,
 };
