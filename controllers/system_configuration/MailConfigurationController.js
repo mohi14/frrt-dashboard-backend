@@ -11,9 +11,42 @@ const getAllMail = async (req, res) => {
   }
 };
 
-const addMail = async (req, res) => {};
+const addMail = async (req, res) => {
+  try {
+    const newMail = new Mail(req.body);
+    const result = await newMail.save();
+    if (result) {
+      res
+        .status(200)
+        .send({ message: "Mail Configuration Created Successfully" });
+    }
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
 
-const editMail = async (req, res) => {};
+const editMail = async (req, res) => {
+  try {
+    const mail = await Mail.findById(req.params.id);
+    if (mail) {
+      const updateMail = req.body;
+      const result = await Mail.updateOne({ _id: req.params.id }, updateMail, {
+        new: true,
+      });
+      if (result) {
+        res
+          .status(200)
+          .send({ message: "Mail configuration updated successfully" });
+      }
+    }
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
 
 const deleteMail = async (req, res) => {
   try {
@@ -22,7 +55,7 @@ const deleteMail = async (req, res) => {
       message: "Mail Deleted Successfully",
     });
   } catch (err) {
-    es.status(500).send({
+    res.status(500).send({
       message: err.message,
     });
   }

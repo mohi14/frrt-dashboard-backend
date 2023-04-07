@@ -30,6 +30,15 @@ const transactionSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    usdChangeRate: {
+      type: Number,
+      reruired: true,
+    },
+    status: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   {
     timestamps: true,

@@ -4,23 +4,26 @@ const pictureSchema = mongoose.Schema(
   {
     projectLogo: {
       type: String,
-      required: true,
+      required: false,
     },
-    userAvatar: {
+    // userAvatar: {
+    //   type: String,
+
+    //   default: "jkdfjkas",
+    // },
+    // userBanner: {
+    //   type: String,
+
+    //   default: "jkdfjkas",
+    // },
+    // helpCenterBanner: {
+    //   type: String,
+
+    //   default: "jkdfjkas",
+    // },
+    currenciesIcon: {
       type: String,
-      required: true,
-    },
-    userBanner: {
-      type: String,
-      required: true,
-    },
-    helpCenterBanner: {
-      type: String,
-      required: true,
-    },
-    currencies: {
-      type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }

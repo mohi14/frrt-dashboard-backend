@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const mailSchema = mongoose.Schema(
   {
-    userName: {
+    account: {
       type: String,
       required: true,
     },
@@ -15,6 +15,11 @@ const mailSchema = mongoose.Schema(
       required: true,
     },
     senderServer: {
+      type: String,
+      required: true,
+    },
+
+    receivingServer: {
       type: String,
       required: true,
     },
